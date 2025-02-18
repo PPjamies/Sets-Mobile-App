@@ -17,4 +17,17 @@ class CardPattern {
   });
 
   CardPattern.empty();
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is CardPattern &&
+          other.count == count &&
+          other.fill == fill &&
+          other.color == color &&
+          other.shape == shape);
+
+  @override
+  int get hashCode =>
+      count.hashCode ^ fill.hashCode ^ color.hashCode ^ shape.hashCode;
 }
