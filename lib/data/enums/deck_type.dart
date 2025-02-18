@@ -1,0 +1,1 @@
+enum DeckVersion { classic }

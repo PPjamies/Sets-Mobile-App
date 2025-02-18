@@ -1,16 +1,9 @@
-import 'package:sets/data/enums/card_enums.dart';
+import 'package:sets/data/enums/deck_type.dart';
 import 'package:sets/data/models/card.dart';
 import 'package:sets/data/models/pattern.dart';
+import 'package:sets/data/models/patterns.dart';
 
-final int CLASSIC_DECK_SIZE = 81;
-final int CLASSIC_DEAL_SIZE = 12;
-final int CLASSIC_DRAW_SIZE = 3;
-final Patterns CLASSIC_PATTERNS = Patterns(
-  [Count.one, Count.two, Count.three],
-  [Fill.blank, Fill.dash, Fill.solid],
-  [Color.red, Color.green, Color.purple],
-  [Shape.diamond, Shape.squiggle, Shape.oval],
-);
+import '../constants/deck_constants.dart';
 
 class Deck {
   late DeckVersion version;
@@ -19,14 +12,13 @@ class Deck {
   late int dealSize;
   late int drawSize;
 
-  List<Card> originalDeck = []; // <--- once initialized this does not change
-  List<Card> deck = []; // <--- people play with this deck
+  List<Card> originalDeck = [];
+  List<Card> deck = [];
 
   void setVersion(DeckVersion version) {
-    this.version = version;
-
     switch (version) {
       case DeckVersion.classic:
+        this.version = version;
         this.deckSize = CLASSIC_DECK_SIZE;
         this.dealSize = CLASSIC_DEAL_SIZE;
         this.drawSize = CLASSIC_DRAW_SIZE;
@@ -47,7 +39,6 @@ class Deck {
       }
     }
 
-    // todo: create custom exception handler
     if (originalDeck.length != deckSize) {
       throw Exception(
         "Original deck does not match up with the expected deck size!",
