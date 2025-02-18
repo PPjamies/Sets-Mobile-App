@@ -3,11 +3,11 @@ import '../enums/count.dart';
 import '../enums/fill.dart';
 import '../enums/shape.dart';
 
-class Patterns {
+class CardPatterns {
   late List<Count> counts;
   late List<Fill> fills;
   late List<Color> colors;
   late List<Shape> shapes;
 
-  Patterns(this.counts, this.fills, this.colors, this.shapes);
+  CardPatterns(this.counts, this.fills, this.colors, this.shapes);
 }

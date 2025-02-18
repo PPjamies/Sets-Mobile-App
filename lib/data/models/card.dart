@@ -1,7 +1,7 @@
-import 'package:sets/data/models/pattern.dart';
+import 'package:sets/data/models/card_pattern.dart';
 
 class Card {
-  late Pattern pattern;
+  late CardPattern pattern;
 
   Card(this.pattern);
 }

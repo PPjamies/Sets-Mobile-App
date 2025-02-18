@@ -1,13 +1,13 @@
 import 'package:sets/data/enums/deck_type.dart';
 import 'package:sets/data/models/card.dart';
-import 'package:sets/data/models/pattern.dart';
-import 'package:sets/data/models/patterns.dart';
+import 'package:sets/data/models/card_pattern.dart';
+import 'package:sets/data/models/card_patterns.dart';
 
 import '../constants/deck_constants.dart';
 
 class Deck {
   late DeckVersion version;
-  late Patterns patterns;
+  late CardPatterns patterns;
   late int deckSize;
   late int dealSize;
   late int drawSize;
@@ -32,7 +32,16 @@ class Deck {
         for (var fill in patterns.fills) {
           for (var color in patterns.colors) {
             for (var shape in patterns.shapes) {
-              originalDeck.add(Card(Pattern(count, fill, color, shape)));
+              originalDeck.add(
+                Card(
+                  CardPattern(
+                    count: count,
+                    fill: fill,
+                    color: color,
+                    shape: shape,
+                  ),
+                ),
+              );
             }
           }
         }
